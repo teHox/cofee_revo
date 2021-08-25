@@ -1,0 +1,133 @@
+@import "nullstyle.scss";
+
+$blue: #415167;
+$brown: #C7A17A;
+.container{
+	max-width: 1200px;
+	padding: 0 0 0 10px;
+	margin: 0 auto;
+}
+.header{
+	.container{
+		display: flex;
+		position: relative;
+	}
+	&_white{
+		width: 240px;
+		.header__logo{
+			margin-top: 75px;
+		}
+		.header__title{
+			font-family: Montserrat;
+			font-weight: 900;
+			font-size: 54px;
+			line-height: 70px;
+			max-width: 470px;
+			color: $blue;
+			position: absolute;
+			left: 15px;
+			top: calc(67%);
+			b{
+				background: $brown;
+				color: #fff;
+				padding: 0 15px;
+   			 	margin-left: -15px;
+			}
+		}
+	}
+	&_bg{
+		background: url(../img/header/background.png) center center no-repeat;
+		width: 690px;
+		height: 768px;
+	}
+	.menu{
+		background: $blue;
+		width: 255px;
+		&__shape{
+			margin-top: 75px;
+			margin-bottom: 125px;
+			margin-left: 22%;
+			cursor: pointer;
+		}
+		&__list{
+			margin-left: 22%;
+			margin-bottom: 260px;
+		}
+		&__link{
+			font-family: Nunito;
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 24px;
+			color: #EDF0F5;
+			margin-bottom: 30px;
+		}
+		&__link:last-child{
+			margin-bottom: 0;
+		}
+		&__link:hover{
+			font-weight: bold;
+			cursor: pointer;
+		}
+	}
+	.burger-menu{
+		display: none;
+		position: absolute;
+		width: 30px;
+		height: 20px;
+		right: 20px;
+    	top: 20px;
+		z-index: 2;
+	}
+	.burger-menu span{
+		background-color: #fff;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		top: 9px;
+		transition: all 0.3s ease 0s;
+	}
+	.burger-menu:after,
+	.burger-menu:before{
+		content: '';
+		background-color: #fff;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		transition: all 0.3s ease 0s;
+	}
+	.burger-menu:before{
+		top: 0;
+	}
+	.burger-menu:after{
+		bottom: 0;
+	}
+}
+
+@media(max-width:930px){
+	.header .burger-menu{
+		display: block;
+	}
+	.burger-menu.active span{
+		transform: scale(0);
+	}
+	.burger-menu.active:before{
+		color: #fff;		
+		transform: rotate(45deg);
+		top: 9px;
+	}
+	.burger-menu.active:after{
+		color: #fff;
+		transform: rotate(-45deg);
+		bottom: 9px;
+	}
+	.header .menu{
+		position: absolute;
+		right: -100%;
+	}
+	.header .menu .active{
+		right: 0;
+		position: fixed;
+	}
+}
